@@ -23,7 +23,8 @@
     "src/**/*.vue",
     "types/env.d.ts",
     "types/**/*.d.ts",
-    "types/**/*.ts"
+    "types/**/*.ts",
+    "apis/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
