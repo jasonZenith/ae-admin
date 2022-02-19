@@ -1,7 +1,7 @@
 import { ConfigEnv, UserConfigExport, loadEnv } from "vite";
-import { alias } from "./.vite/alias";
-import { parseEnv } from "./.vite/parseEnv";
-import { setupVitePlugins } from "./.vite/plugins";
+import { alias } from "./vite/alias";
+import { parseEnv } from "./vite/parseEnv";
+import { setupVitePlugins } from "./vite/plugins";
 
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
   const isBuild = command === "build";
