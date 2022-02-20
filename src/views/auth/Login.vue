@@ -19,6 +19,14 @@ import LoginLinks from "@/components/login/LoginLinks.vue";
 import LoginPic from "@/components/login/LoginPic.vue";
 </script>
 
+<script lang="ts">
+export default {
+  route: {
+    path: `/login`,
+  },
+};
+</script>
+
 <style lang="scss">
 .login-container {
   .login-box {
@@ -35,11 +43,3 @@ import LoginPic from "@/components/login/LoginPic.vue";
   }
 }
 </style>
-
-<script lang="ts">
-export default {
-  route: {
-    path: `/login`,
-  },
-};
-</script>
