@@ -1,6 +1,5 @@
 import { AxiosResult } from "#/axios";
 import axios, { Axios, AxiosRequestConfig } from "axios";
-import { reject } from "lodash";
 
 export class MyAxios {
   private instance;
