@@ -7,6 +7,9 @@ yup.setLocale({
   string: {
     email: "邮箱格式错误",
   },
+  number: {
+    min: "${label}不能少于 ${min}位",
+  },
 });
 
 export default yup;

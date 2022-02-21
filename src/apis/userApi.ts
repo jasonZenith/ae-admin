@@ -16,9 +16,11 @@ class UserApi {
       url: `info`,
     });
   }
-  login() {
+  login<T>(data: T) {
     return http.request<UserLogin>({
       url: `login`,
+      method: "post",
+      data,
     });
   }
 }

@@ -1,4 +1,4 @@
-import envNew from "@/types/helper";
+import envNew from "@/utils/envHelper";
 import { RouteRecordRaw } from "vue-router";
 
 const layouts = import.meta.globEager("../layouts/*.vue");
