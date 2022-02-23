@@ -23,6 +23,7 @@ import LoginPic from "@/components/login/LoginPic.vue";
 export default {
   route: {
     path: `/login`,
+    name: "login",
   },
 };
 </script>

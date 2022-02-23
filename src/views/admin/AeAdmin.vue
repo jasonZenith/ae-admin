@@ -29,21 +29,17 @@
 import { ref } from "vue";
 import validate from "@/plugins/validate";
 const { Form, Field } = validate;
-// import { Form, Field, ErrorMessage, defineRule, configure } from "vee-validate";
-// import { required, min, max, confirmed, email } from "@vee-validate/rules";
-// import { localize } from "@vee-validate/i18n";
-// import zh_CN from "@vee-validate/i18n/dist/locale/zh_CN.json";
 
 const account = ref("");
-// defineRule("required", required);
-// defineRule("email", email);
-// configure({
-//   generateMessage: localize("zh_CN", zh_CN),
-// });
 
 const onSubmit = (values: object) => {
   console.log(values);
   alert("验证通过时执行");
+};
+</script>
+<script lang="ts">
+export default {
+  route: { meta: { auth: true } },
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <img
-    src="../../../public/aelogin.jpg"
+    src="/imgs/aelogin.jpg"
     alt="aelogin"
     class="object-cover w-full h-full"
   />

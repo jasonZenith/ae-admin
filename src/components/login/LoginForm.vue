@@ -50,8 +50,10 @@ import { userApi } from "@/apis/userApi";
 import AeLoginButton from "@/components/button/AeLoginButton.vue";
 import validate from "@/plugins/validate";
 import store from "@/store";
+import { useRouter } from "vue-router";
 const { Form, Field } = validate;
 
+const router = useRouter();
 const schema = {
   account: { required: true, regex: /.+@.+\..+|\d{11}/ },
   password: { required: true, min: 6 },
@@ -60,9 +62,10 @@ const onSubmit = async (values: object) => {
   const res = await userApi.login(values);
   if (res.code === 200) {
     store.userStore.set("token", {
-      expore: 10,
+      expire: 600,
       token: res.result.token,
     });
+    router.push({ name: "admin.user" });
   }
 };
 </script>
