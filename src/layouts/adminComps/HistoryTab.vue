@@ -2,7 +2,7 @@
   <div class="history-tab">
     <div class="tab-link" v-for="n in 5">
       <a href="">links</a>
-      <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-xmark cursor-pointer"></i>
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 .history-tab {
   @apply flex gap-1;
   .tab-link {
-    @apply bg-white py-2 px-3 m-2 flex items-center gap-3;
+    @apply bg-white py-2 px-3 mx-3 my-2 flex items-center gap-3;
   }
 }
 </style>

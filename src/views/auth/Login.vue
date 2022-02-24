@@ -14,9 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import LoginForm from "@/components/login/LoginForm.vue";
-import LoginLinks from "@/components/login/LoginLinks.vue";
-import LoginPic from "@/components/login/LoginPic.vue";
+import LoginForm from "@/viewsComps/login/LoginForm.vue";
+import LoginLinks from "@/viewsComps/login/LoginLinks.vue";
+import LoginPic from "@/viewsComps/login/LoginPic.vue";
 </script>
 
 <script lang="ts">

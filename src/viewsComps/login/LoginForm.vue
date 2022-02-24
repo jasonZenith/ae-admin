@@ -62,7 +62,7 @@ const onSubmit = async (values: object) => {
   const res = await userApi.login(values);
   if (res.code === 200) {
     store.userStore.set("token", {
-      expire: 600,
+      // expire: 600,
       token: res.result.token,
     });
     router.push({ name: "admin.user" });

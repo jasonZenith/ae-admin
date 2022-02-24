@@ -47,7 +47,7 @@ export default {
 .aeadmin-container {
   background-color: #34495e;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
