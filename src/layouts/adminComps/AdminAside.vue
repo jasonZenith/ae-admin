@@ -8,8 +8,11 @@
       <dt @click="clickMenu(menu)">
         <section><i :class="menu.icon"></i> {{ menu.title }}</section>
         <section>
-          <i v-if="menu.active" class="fa-solid fa-angle-up"></i>
-          <i v-else class="fa-solid fa-angle-down"></i>
+          <!-- <i v-if="menu.active" class="fa-solid fa-angle-up"></i> -->
+          <i
+            class="fa-solid fa-angle-down duration-300"
+            :class="{ 'rotate-180': menu.active }"
+          ></i>
         </section>
       </dt>
       <dd
@@ -57,13 +60,13 @@ const clickMenuItem = (menuItem: MenuItem) => {
   dl {
     @apply mt-5 cursor-pointer;
     dt {
-      @apply my-3 flex gap-4 items-center justify-around;
+      @apply my-3 p-2 flex gap-4 items-center justify-between;
       section {
         @apply flex items-center gap-3;
       }
     }
     dd {
-      @apply m-4 ml-6 hover:bg-cyan-700 duration-300 rounded-md py-2 px-3;
+      @apply m-4 ml-6 bg-gray-700 hover:bg-cyan-700 duration-300 rounded-md py-2 px-3;
     }
     .active {
       @apply bg-cyan-700;

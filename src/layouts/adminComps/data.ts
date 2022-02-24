@@ -12,16 +12,31 @@ export interface Menu extends MenuItem {
 
 export const menus: Menu[] = reactive([
   {
-    title: "错误页面",
-    icon: "fa-solid fa-bug",
+    title: "Dashboard",
+    icon: "fab fa-delicious",
     active: true,
     children: [
       {
-        title: "403错误",
+        title: "分析页",
         active: true,
       },
       {
+        title: "办公页",
+      },
+    ],
+  },
+  {
+    title: "错误页面",
+    icon: "fa-solid fa-bug",
+    children: [
+      {
+        title: "403错误",
+      },
+      {
         title: "404错误",
+      },
+      {
+        title: "405错误",
       },
     ],
   },
