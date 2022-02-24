@@ -6,7 +6,7 @@ Vue 3 + Typescript + Vite + Sass + Tailwindcss + Axios + Mockjs
 
 ## 介绍
 
-这是一个从零开始的 **admin 管理系统 **项目， 持续完善中。
+这是一个从零开始的 **admin 管理系统**项目， 持续完善中。
 
 使用 `Vue3` 加 `TypeScript` 开发，通过 `Vite` 构建和启动项目。
 
