@@ -15,6 +15,7 @@ export default {
   route: {
     meta: {
       auth: true,
+      title: "analysis",
     },
   },
 };

@@ -4,48 +4,54 @@
       <i class="fab fa-battle-net"></i>
       <span class="text-2xl">ae-admin</span>
     </div>
-    <dl v-for="menu in menus">
+    <dl v-for="(menu, index) in menus" :key="index">
+      <!-- <dt @click="clickMenu(menu)"> -->
       <dt @click="clickMenu(menu)">
-        <section><i :class="menu.icon"></i> {{ menu.title }}</section>
+        <section><i :class="menu.meta.icon"></i> {{ menu.meta.title }}</section>
         <section>
-          <!-- <i v-if="menu.active" class="fa-solid fa-angle-up"></i> -->
           <i
             class="fa-solid fa-angle-down duration-300"
-            :class="{ 'rotate-180': menu.active }"
+            :class="{ 'rotate-180': menu.meta.isClick }"
           ></i>
         </section>
       </dt>
+      <!-- @click="clickMenuItem(menuItem)" -->
       <dd
-        v-if="menu.active"
+        v-if="menu.meta.isClick"
+        :class="{ active: menuItem.meta?.isClick }"
+        v-for="(menuItem, index) in menu.children"
+        :key="index"
         @click="clickMenuItem(menuItem)"
-        :class="{ active: menuItem.active }"
-        v-for="menuItem in menu.children"
       >
-        {{ menuItem.title }}
+        {{ menuItem.meta?.title }}
       </dd>
     </dl>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { menus, Menu, MenuItem } from "./data";
+import routerStore from "@/store/routerStore";
+import { RouteRecordNormalized, RouteRecordRaw } from "vue-router";
+// import { menus, Menu, MenuItem } from "./data";
+const stores = routerStore();
+const menus = stores.routes;
 
-const clickMenu = (menu: Menu) => {
+const clickMenu = (menu: RouteRecordNormalized) => {
   menus.forEach((item) => {
     if (item !== menu) {
-      item.active = false;
+      item.meta.isClick = false;
     }
   });
-  menu.active = Boolean(!menu.active);
+  menu.meta.isClick = Boolean(!menu.meta.isClick);
 };
 
-const clickMenuItem = (menuItem: MenuItem) => {
+const clickMenuItem = (menuItem: RouteRecordRaw) => {
   menus.forEach((menu) => {
     menu.children?.forEach((menuItem) => {
-      menuItem.active = false;
+      menuItem.meta!.isClick = false;
     });
   });
-  menuItem.active = true;
+  menuItem.meta!.isClick = true;
 };
 </script>
 

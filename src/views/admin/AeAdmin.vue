@@ -39,7 +39,7 @@ const onSubmit = (values: object) => {
 </script>
 <script lang="ts">
 export default {
-  route: { meta: { auth: true } },
+  route: { meta: { auth: true, title: "Aeadmin" } },
 };
 </script>
 

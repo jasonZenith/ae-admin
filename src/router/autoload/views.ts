@@ -33,6 +33,10 @@ function getRouteByModule(file: string, module: { [key: string]: any }) {
     name: name.replace("/", "."),
     path: `/${name}`,
     component: module.default,
+    meta: {
+      title: String(name.match(/\w+/g)?.pop()),
+      isClick: false,
+    },
   };
 
   return Object.assign(route, module.default.route);

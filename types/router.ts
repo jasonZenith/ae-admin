@@ -1,14 +1,16 @@
 import "vue-router";
-import { boolean } from "yup";
 
 declare module "vue-router" {
   interface RouteMeta {
-    auth?: boolean;
+    title: string;
 
-    // 路由是否在菜单显示
-    show?: boolean;
+    // 访问权限
+    permission?: string[];
+    // 是否认证
+    auth?: boolean;
+    // 是否选中
+    isClick?: boolean;
     // 菜单标题是否显示
-    title?: boolean;
-    icon: string;
+    icon?: string;
   }
 }

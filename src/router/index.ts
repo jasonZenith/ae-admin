@@ -4,7 +4,6 @@ import { routes } from "./routes";
 import autoload from "./autoload";
 // import { autoRoutes } from "./autoloads";
 import guard from "./guard";
-console.log(autoload);
 
 const router = createRouter({
   history: createWebHistory(),
