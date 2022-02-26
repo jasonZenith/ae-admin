@@ -1,6 +1,6 @@
 <template>
   <div class="layout-admin">
-    <AdminAside />
+    <AdminAside class="hidden md:block" />
     <main class="bg-gray-100 w-full">
       <AdminNavbar />
       <HistoryTab />
@@ -19,6 +19,6 @@ import HistoryTab from "./adminComps/HistoryTab.vue";
 
 <style lang="scss">
 .layout-admin {
-  @apply w-screen h-screen flex;
+  @apply w-full min-h-screen flex;
 }
 </style>

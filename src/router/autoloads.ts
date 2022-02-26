@@ -39,5 +39,6 @@ function getRouteByModule(file: string, module: { [key: string]: any }) {
 }
 
 const autoRoutes = envNew.env.VITE_ROUTE_AUTOLOAD ? getRoutes() : [];
+// const autoRoutes = getRoutes();
 
-export default autoRoutes;
+export { autoRoutes };

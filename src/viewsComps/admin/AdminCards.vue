@@ -1,10 +1,10 @@
 <template>
-  <div class="admin-cards">
+  <div class="admin-cards md:flex-row flex-col">
     <a-card
       :title="card.title"
       :hoverable="true"
       :bordered="true"
-      style="flex: 1"
+      class="flex-1"
       v-for="card in cards"
       :key="card.id"
     >
@@ -15,7 +15,10 @@
       </template>
       <section>
         <div class="text-2xl text-gray-500">{{ card.price }}</div>
-        <div><i :class="card.priceIcon" class="text-2xl"></i></div>
+        <!-- <p class="text-[#50d71e]">1</p> -->
+        <div :style="`color:${card.color}`">
+          <i :class="card.priceIcon" class="text-2xl"></i>
+        </div>
       </section>
       <section class="mt-5">
         <div>

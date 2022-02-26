@@ -51,7 +51,7 @@ const clickMenuItem = (menuItem: MenuItem) => {
 
 <style lang="scss" scoped>
 .menu {
-  @apply h-screen w-[260px] bg-gray-800 p-3 text-gray-100;
+  @apply min-h-screen w-[260px] min-w-[200px] bg-gray-800 p-3 text-gray-100;
 
   .logo {
     @apply text-2xl flex items-center gap-3;

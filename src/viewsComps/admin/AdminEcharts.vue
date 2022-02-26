@@ -1,8 +1,8 @@
 <template>
   <div id="echart-part">
-    <section id="echart-a" style="flex: 1; height: 400px"></section>
-    <section id="echart-b" style="flex: 1; height: 400px"></section>
-    <section id="echart-c" style="flex: 1; height: 400px"></section>
+    <section id="echart-a" class="h-[400px] flex-1 mx-auto"></section>
+    <section id="echart-b" class="h-[400px] flex-1 mx-auto"></section>
+    <section id="echart-c" class="h-[400px] flex-1 mx-auto"></section>
   </div>
 </template>
 
@@ -24,6 +24,6 @@ nextTick(() => {
 
 <style lang="scss">
 #echart-part {
-  @apply bg-white my-4 p-5 flex justify-around;
+  @apply bg-white my-4 p-5 flex md:flex-row flex-col;
 }
 </style>

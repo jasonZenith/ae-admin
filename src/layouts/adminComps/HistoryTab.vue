@@ -11,9 +11,9 @@
 
 <style lang="scss">
 .history-tab {
-  @apply flex gap-1;
+  @apply flex gap-1 mx-2;
   .tab-link {
-    @apply bg-white py-2 px-3 mx-3 my-2 flex items-center gap-3;
+    @apply bg-white py-2 px-3 mx-1 my-2 flex items-center gap-3;
   }
 }
 </style>
