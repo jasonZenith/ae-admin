@@ -3,7 +3,7 @@ import { RouteRecordRaw } from "vue-router";
 export default {
   name: "error",
   path: "/error",
-  component: () => import("@/layouts/Error.vue"),
+  component: () => import("@/layouts/Admin.vue"),
   meta: {
     isClick: false,
     icon: "fa-solid fa-bug",

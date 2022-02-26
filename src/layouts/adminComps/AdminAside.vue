@@ -31,10 +31,11 @@
 
 <script setup lang="ts">
 import routerStore from "@/store/routerStore";
-import { RouteRecordNormalized, RouteRecordRaw } from "vue-router";
+import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router";
 // import { menus, Menu, MenuItem } from "./data";
 const stores = routerStore();
 const menus = stores.routes;
+const menuItemSelect = useRouter();
 
 const clickMenu = (menu: RouteRecordNormalized) => {
   menus.forEach((item) => {
@@ -52,6 +53,7 @@ const clickMenuItem = (menuItem: RouteRecordRaw) => {
     });
   });
   menuItem.meta!.isClick = true;
+  menuItemSelect.push(menuItem);
 };
 </script>
 

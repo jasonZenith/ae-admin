@@ -3,7 +3,7 @@ import { RouteRecordRaw } from "vue-router";
 export default {
   name: "editor",
   path: "/editor",
-  component: () => import("@/layouts/Editor.vue"),
+  component: () => import("@/layouts/Admin.vue"),
   meta: {
     isClick: false,
     title: "编辑器",
