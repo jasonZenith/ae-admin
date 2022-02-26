@@ -8,9 +8,13 @@
       <img src="/imgs/zjcat.jpg" alt="zjcat" />
       <span>JasonZeng</span>
       <ul class="avatar-links group-hover:block">
-        <li><a href="">文档中心</a></li>
-        <li><a href="">回到首页</a></li>
-        <li><a href="">退出登录</a></li>
+        <li>
+          <a href="https://github.com/JasonZ227/ae-admin" target="_blank"
+            >文档中心</a
+          >
+        </li>
+        <li><a href="/">回到首页</a></li>
+        <li><a href="/login">退出登录</a></li>
       </ul>
     </div>
   </div>
