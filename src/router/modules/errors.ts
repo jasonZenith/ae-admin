@@ -8,6 +8,7 @@ export default {
     isClick: false,
     icon: "fa-solid fa-bug",
     title: "error错误页面",
+    auth: true,
   },
   children: [
     {

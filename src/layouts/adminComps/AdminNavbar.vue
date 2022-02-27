@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { CacheEnum } from "@/enums/cacheEnum";
 import { apiUserStore } from "@/store";
 import { reactive } from "vue";
 
@@ -31,7 +32,7 @@ const userInfo = reactive({
 });
 
 const removeToken = () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem(CacheEnum.TOKEN_NAME);
 };
 </script>
 

@@ -11,6 +11,11 @@ const routes = [
     name: "login",
     component: () => import("@/views/auth/Login.vue"),
   },
+  {
+    path: "/:any(.*)",
+    name: "notFound",
+    component: () => import("@/viewsComps/error/VoidError.vue"),
+  },
 ] as RouteRecordRaw[];
 
 export { routes };

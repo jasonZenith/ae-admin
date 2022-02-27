@@ -1,26 +1,38 @@
-import { userStore, apiUserStore } from "@/store";
+import { CacheEnum } from "@/enums/cacheEnum";
+import { apiUserStore } from "@/store";
+import utils from "@/utils";
 import { RouteLocationNormalized, Router } from "vue-router";
 
 class Guard {
   constructor(private router: Router) {}
   public run() {
     this.router.beforeEach(async (to, from) => {
-      let token = userStore.get("token");
-      if (this.isLogin(to, token) === false) return { name: "login" };
+      if (this.isLogin(to, this.hasToken()) === false) {
+        return { name: "login" };
+      }
       await this.getUserInfo();
     });
   }
 
+  private hasToken() {
+    const token = utils.store.get(CacheEnum.TOKEN_NAME);
+    return token;
+  }
+
   private getUserInfo() {
-    let token = userStore.get("token");
-    if (token) {
+    if (this.hasToken()) {
       const userInfo = apiUserStore().getUserInfo();
       return userInfo;
     }
   }
 
   private isLogin(route: RouteLocationNormalized, token: any) {
-    return Boolean(!route.meta.auth || (route.meta.auth && token));
+    const state = Boolean(!route.meta.auth || (route.meta.auth && token));
+
+    if (!state) {
+      utils.store.set(CacheEnum.CACHE_ROUTER_NAME, route.name as String);
+    }
+    return state;
   }
 }
 export default function (router: Router) {

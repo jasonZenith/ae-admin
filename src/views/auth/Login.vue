@@ -36,7 +36,7 @@ export default {
     max-width: 768px;
     margin: 0 auto;
     background: #fff;
-    height: 500px;
+    height: 450px;
     display: flex;
     overflow: hidden;
     border-radius: 1rem;

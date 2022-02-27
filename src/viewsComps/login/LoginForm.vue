@@ -49,7 +49,8 @@
 import { userApi, dataParams } from "@/apis/userApi";
 import AeLoginButton from "@/components/button/AeLoginButton.vue";
 import validate from "@/plugins/validate";
-import { userStore } from "@/store";
+import utils from "@/utils";
+import { CacheEnum } from "@/enums/cacheEnum";
 import { useRouter } from "vue-router";
 const { Form, Field } = validate;
 
@@ -61,11 +62,13 @@ const schema = {
 const onSubmit = async (values: object) => {
   const res = await userApi.login(values);
   if (res.code === 200) {
-    userStore.set("token", {
+    utils.store.set("token", {
       expire: 1800, // 自定义token 过期时间30分钟
       token: res.result.token,
     });
-    router.push({ name: "admin.user" });
+    const cacheRouterName =
+      utils.store.get(CacheEnum.CACHE_ROUTER_NAME) ?? "admin.user";
+    router.push({ name: cacheRouterName });
   }
 };
 </script>

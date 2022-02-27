@@ -8,6 +8,7 @@ export default {
     isClick: false,
     title: "编辑器",
     icon: "fab fa-artstation",
+    auth: true,
   },
   children: [
     {
