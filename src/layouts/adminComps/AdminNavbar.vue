@@ -5,8 +5,8 @@
       <a-breadcrumb-item>分析页</a-breadcrumb-item>
     </a-breadcrumb>
     <div class="logo relative group">
-      <img src="/imgs/zjcat.jpg" alt="zjcat" />
-      <span>JasonZeng</span>
+      <img :src="userInfo.avatar" alt="用户头像" />
+      <span>{{ userInfo.name }}</span>
       <ul class="avatar-links group-hover:block">
         <li>
           <a href="https://github.com/JasonZ227/ae-admin" target="_blank"
@@ -21,6 +21,15 @@
 </template>
 
 <script setup lang="ts">
+import { apiUserStore } from "@/store";
+import { reactive } from "vue";
+
+let info = apiUserStore().info;
+const userInfo = reactive({
+  name: info?.name,
+  avatar: info?.avatar,
+});
+
 const removeToken = () => {
   localStorage.removeItem("token");
 };

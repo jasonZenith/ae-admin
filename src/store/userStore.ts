@@ -1,9 +1,13 @@
+import { userApi, UserResult } from "@/apis/userApi";
+import { defineStore } from "pinia";
+
 export interface IData {
   expire?: number;
   token: string;
   [key: string]: any;
 }
 
+// 定义set localStorage，与 get localStorage
 class UserStore {
   set(key: string, data: IData) {
     if (data.expire) {
@@ -27,5 +31,20 @@ class UserStore {
   }
 }
 
-const userStore = new UserStore();
-export default userStore;
+const userStore = new UserStore(); // 定义set localStorage，与 get localStorage
+
+// 定义用户信息状态
+const apiUserStore = defineStore("user", {
+  state: () => {
+    return {
+      info: {} as null | UserResult,
+    };
+  },
+  actions: {
+    async getUserInfo() {
+      const res = await userApi.info();
+      this.info = res.result;
+    },
+  },
+});
+export { userStore, apiUserStore };

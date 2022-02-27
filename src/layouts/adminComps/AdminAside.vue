@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import routerStore from "@/store/routerStore";
+import { routerStore } from "@/store";
 import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router";
 // import { menus, Menu, MenuItem } from "./data";
 const stores = routerStore();

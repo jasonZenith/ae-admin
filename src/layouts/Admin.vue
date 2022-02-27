@@ -4,7 +4,7 @@
     <main class="bg-gray-100 w-full">
       <AdminNavbar />
       <HistoryTab />
-      <div class="mx-3">
+      <div class="m-3">
         <router-view />
       </div>
     </main>

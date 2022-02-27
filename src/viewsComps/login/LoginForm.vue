@@ -46,10 +46,10 @@
 </template>
 
 <script setup lang="ts">
-import { userApi } from "@/apis/userApi";
+import { userApi, dataParams } from "@/apis/userApi";
 import AeLoginButton from "@/components/button/AeLoginButton.vue";
 import validate from "@/plugins/validate";
-import store from "@/store";
+import { userStore } from "@/store";
 import { useRouter } from "vue-router";
 const { Form, Field } = validate;
 
@@ -61,8 +61,8 @@ const schema = {
 const onSubmit = async (values: object) => {
   const res = await userApi.login(values);
   if (res.code === 200) {
-    store.userStore.set("token", {
-      // expire: 600,
+    userStore.set("token", {
+      expire: 1800, // 自定义token 过期时间30分钟
       token: res.result.token,
     });
     router.push({ name: "admin.user" });

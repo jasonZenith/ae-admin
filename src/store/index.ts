@@ -1,3 +1,4 @@
-import userStore from "./userStore";
+import { userStore, apiUserStore } from "./userStore";
+import routerStore from "./routerStore";
 
-export default { userStore };
+export { userStore, apiUserStore, routerStore };

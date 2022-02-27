@@ -10,9 +10,9 @@ export default [
         message: "请求成功",
         type: "success",
         result: {
-          name: "Jason",
+          name: "JasonZeng",
           age: 22,
-          avatar: "/avatar/jason.jpg",
+          avatar: "/imgs/zjcat.jpg",
         },
       };
     },

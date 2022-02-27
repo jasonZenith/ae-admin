@@ -10,6 +10,11 @@ export interface UserLogin {
   token: string;
 }
 
+export interface dataParams {
+  account: string;
+  password: string;
+}
+
 class UserApi {
   info() {
     return http.request<UserResult>({
