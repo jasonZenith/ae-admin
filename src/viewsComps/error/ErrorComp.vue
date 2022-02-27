@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-100 h-2/3 justify-center">
-    <center class="mt-24 m-auto">
+  <div class="bg-gray-100 h-2/3 flex flex-col justify-center">
+    <div class="mt-16 mx-auto">
       <svg
-        class="emoji-403"
+        class="emoji-403 mx-auto"
         enable-background="new 0 0 226 249.135"
         height="249.135"
         id="Layer_1"
@@ -91,22 +91,20 @@
           stroke-width="8"
         />
       </svg>
-      <div class="tracking-widest mt-4">
-        <span class="text-gray-500 text-6xl block"
+      <div class="tracking-widest mt-8 flex flex-col items-center">
+        <span class="text-gray-500 text-6xl"
           ><span>{{ errorTitle }}</span></span
         >
-        <span class="text-gray-500 text-xl"
-          >Sorry, We couldn't find what you are looking for!</span
-        >
+        <span class="text-gray-500 text-xl">未找到页面!</span>
       </div>
-    </center>
-    <center class="mt-6">
+    </div>
+    <div class="mt-8 mx-auto">
       <router-link
         to="/admin/user"
         class="text-gray-500 font-mono text-xl bg-gray-200 p-3 rounded-md hover:shadow-md"
         >返回分析页
       </router-link>
-    </center>
+    </div>
   </div>
 </template>
 

@@ -14,13 +14,17 @@
           >
         </li>
         <li><a href="/">回到首页</a></li>
-        <li><a href="/login">退出登录</a></li>
+        <li><a href="/login" @click="removeToken">退出登录</a></li>
       </ul>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const removeToken = () => {
+  localStorage.removeItem("token");
+};
+</script>
 
 <style lang="scss">
 .admin-navbar {
