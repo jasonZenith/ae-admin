@@ -1,4 +1,3 @@
-import { MenuItemParams } from "#/menu";
 import { defineStore } from "pinia";
 import { RouteRecordNormalized, useRouter } from "vue-router";
 import { router } from "@/router";
@@ -10,11 +9,7 @@ const menuStore = defineStore("menuStore", {
       menus: [] as RouteRecordNormalized[],
     };
   },
-  // getters: {
-  //   get(state) {
-  //     return state.username;
-  //   },
-  // },
+
   actions: {
     menuInit() {
       this.menus = this.getRoutes();

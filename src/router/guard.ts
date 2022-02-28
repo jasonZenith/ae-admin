@@ -1,16 +1,17 @@
 import { CacheEnum } from "@/enums/cacheEnum";
-import { apiUserStore } from "@/store";
+import { apiUserStore, historyTabStore } from "@/store";
 import utils from "@/utils";
 import { RouteLocationNormalized, Router } from "vue-router";
 
 class Guard {
   constructor(private router: Router) {}
   public run() {
-    this.router.beforeEach(async (to, from) => {
+    this.router.beforeEach(async (to: RouteLocationNormalized, from) => {
       if (this.isLogin(to, this.hasToken()) === false) {
         return { name: "login" };
       }
       await this.getUserInfo();
+      historyTabStore().addHistoryTab(to);
     });
   }
 

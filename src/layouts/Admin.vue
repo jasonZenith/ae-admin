@@ -5,7 +5,11 @@
       <AdminNavbar />
       <HistoryTab />
       <div class="m-3">
-        <router-view />
+        <router-view #default="{ Component }">
+          <transition enter-active-class="animate__animated animate__fadeInUp">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
     </main>
   </div>
