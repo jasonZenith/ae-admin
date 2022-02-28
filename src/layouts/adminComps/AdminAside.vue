@@ -30,11 +30,12 @@
 </template>
 
 <script setup lang="ts">
-import { routerStore } from "@/store";
+import { menuStore } from "@/store";
 import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router";
 // import { menus, Menu, MenuItem } from "./data";
-const stores = routerStore();
-const menus = stores.routes;
+const stores = menuStore();
+
+const menus = stores.menuInit();
 const menuItemSelect = useRouter();
 
 const clickMenu = (menu: RouteRecordNormalized) => {
