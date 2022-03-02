@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6rem;
+  gap: 4rem;
 
   a {
     color: #eee;
