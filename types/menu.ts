@@ -6,8 +6,7 @@ export interface MenuParams {
   isClick?: boolean;
 }
 
-export interface HistoryTab {
-  title: string;
+export interface HistoryTab extends MenuParams {
   name: RouteRecordName | null | undefined;
 }
 

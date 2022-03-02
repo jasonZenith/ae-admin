@@ -30,13 +30,12 @@
 </template>
 
 <script setup lang="ts">
+import { router } from "@/router";
 import { menuStore } from "@/store";
 import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router";
-// import { menus, Menu, MenuItem } from "./data";
-const stores = menuStore();
 
+const stores = menuStore();
 const menus = stores.menuInit();
-const menuItemSelect = useRouter();
 
 const clickMenu = (menu: RouteRecordNormalized) => {
   menus.forEach((item) => {
@@ -49,12 +48,12 @@ const clickMenu = (menu: RouteRecordNormalized) => {
 
 const clickMenuItem = (menuItem: RouteRecordRaw) => {
   menus.forEach((menu) => {
-    menu.children?.forEach((menuItem) => {
-      menuItem.meta!.isClick = false;
+    menu.children?.forEach((cmenu) => {
+      cmenu.meta!.isClick = false;
     });
   });
   menuItem.meta!.isClick = true;
-  menuItemSelect.push(menuItem);
+  router.push(menuItem);
 };
 </script>
 
