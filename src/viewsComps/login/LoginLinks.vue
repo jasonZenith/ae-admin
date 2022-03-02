@@ -6,7 +6,11 @@
       target="_blank"
       title="文档中心"
     />
-    <!-- <AeLink href="" title="创建注册" /> -->
+    <AeLink
+      href="https://jasonzeng.vercel.app"
+      target="_blank"
+      title="个人网站"
+    />
   </div>
 </template>
 

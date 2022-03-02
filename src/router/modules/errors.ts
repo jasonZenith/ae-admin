@@ -7,7 +7,7 @@ export default {
   meta: {
     isClick: false,
     icon: "fa-solid fa-bug",
-    title: "error错误页面",
+    title: "错误页面",
     auth: true,
   },
   children: [

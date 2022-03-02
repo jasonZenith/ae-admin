@@ -13,8 +13,10 @@
             >文档中心</a
           >
         </li>
-        <li><a href="/">回到首页</a></li>
-        <li><a href="/login" @click="removeToken">退出登录</a></li>
+        <li><router-link to="/">回到首页</router-link></li>
+        <li>
+          <router-link to="/login" @click="removeToken">退出登录</router-link>
+        </li>
       </ul>
     </div>
   </div>

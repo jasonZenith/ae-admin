@@ -9,9 +9,7 @@
       :key="card.id"
     >
       <template #extra>
-        <a href="#">
-          <a-tag :color="card.color">{{ card.color }}</a-tag>
-        </a>
+        <a-tag :color="card.color">{{ card.color }}</a-tag>
       </template>
       <section>
         <div class="text-2xl text-gray-500">{{ card.price }}</div>

@@ -1,4 +1,6 @@
-<template>markdown</template>
+<template>
+  <div>markdown</div>
+</template>
 
 <script setup lang="ts"></script>
 

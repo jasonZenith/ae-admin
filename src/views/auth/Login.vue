@@ -1,6 +1,6 @@
 <template>
-  <div class="login-container bg-blue-100 w-full h-screen">
-    <div class="login-box translate-y-[100px]">
+  <div class="login-container bg-[#f6f8fa] w-full h-screen">
+    <div class="login-box translate-y-[78px]">
       <section class="w-full md:w-1/2 p-6">
         <h2 class="text-center mt-6 text-dark-700 text-2xl">登录 ae 系统</h2>
         <LoginForm />
@@ -11,12 +11,14 @@
       </section>
     </div>
   </div>
+  <Footer class="absolute bottom-0 w-full" />
 </template>
 
 <script setup lang="ts">
 import LoginForm from "@/viewsComps/login/LoginForm.vue";
 import LoginLinks from "@/viewsComps/login/LoginLinks.vue";
 import LoginPic from "@/viewsComps/login/LoginPic.vue";
+import Footer from "@/components/globalComp/Footer.vue";
 </script>
 
 <script lang="ts">
