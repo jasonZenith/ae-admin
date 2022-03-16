@@ -37,7 +37,7 @@ const removeHistoryTab = (historyTab: any) => {
   historyTabs.forEach((tab) => {
     if (tab.isClick) {
       router.push({
-        name: tab.name,
+        name: tab.name as string,
       });
     }
   });

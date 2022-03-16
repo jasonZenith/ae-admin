@@ -1,14 +1,20 @@
 <template>
-  <aside class="menu">
+  <aside
+    class="menu"
+    :class="fullMenu ? 'w-[260px] min-w-[200px]' : 'w-[60px]'"
+  >
     <div class="logo mb-10">
       <i class="fab fa-battle-net"></i>
-      <span class="text-2xl">ae-admin</span>
+      <template v-if="fullMenu"
+        ><span class="text-2xl">ae-admin</span>
+      </template>
     </div>
     <dl v-for="(menu, index) in menus" :key="index">
-      <!-- <dt @click="clickMenu(menu)"> -->
       <dt @click="clickMenu(menu)">
-        <section><i :class="menu.meta.icon"></i> {{ menu.meta.title }}</section>
         <section>
+          <i :class="menu.meta.icon"></i> {{ fullMenu ? menu.meta.title : "" }}
+        </section>
+        <section v-if="fullMenu">
           <i
             class="fa-solid fa-angle-down duration-300"
             :class="{ 'rotate-180': menu.meta.isClick }"
@@ -16,15 +22,16 @@
         </section>
       </dt>
       <!-- @click="clickMenuItem(menuItem)" -->
-      <dd
-        v-if="menu.meta.isClick"
-        :class="{ active: menuItem.meta?.isClick }"
-        v-for="(menuItem, index) in menu.children"
-        :key="index"
-        @click="clickMenuItem(menuItem)"
-      >
-        {{ menuItem.meta?.title }}
-      </dd>
+      <template v-if="menu.meta.isClick && fullMenu">
+        <dd
+          :class="{ active: menuItem.meta?.isClick }"
+          v-for="(menuItem, index) in menu.children"
+          :key="index"
+          @click="clickMenuItem(menuItem)"
+        >
+          {{ menuItem.meta?.title }}
+        </dd>
+      </template>
     </dl>
   </aside>
 </template>
@@ -33,6 +40,7 @@
 import { router } from "@/router";
 import { menuStore } from "@/store";
 import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router";
+import { fullMenu } from "@/composables/useFullMenu";
 
 const stores = menuStore();
 const menus = stores.menuInit();
@@ -59,7 +67,7 @@ const clickMenuItem = (menuItem: RouteRecordRaw) => {
 
 <style lang="scss" scoped>
 .menu {
-  @apply min-h-screen w-[260px] min-w-[200px] bg-gray-800 p-3 text-gray-100;
+  @apply min-h-screen  bg-gray-800 p-3 text-gray-100 duration-300;
 
   .logo {
     @apply text-2xl flex items-center gap-3;
@@ -69,6 +77,7 @@ const clickMenuItem = (menuItem: RouteRecordRaw) => {
     @apply mt-5 cursor-pointer;
     dt {
       @apply my-3 p-2 flex gap-4 items-center justify-between;
+
       section {
         @apply flex items-center gap-3;
       }

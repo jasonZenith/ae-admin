@@ -1,6 +1,12 @@
 <template>
   <div class="admin-navbar">
-    <a-breadcrumb>
+    <span class="cursor-pointer absolute py-6" @click="fullMenu = !fullMenu">
+      <i
+        class="fas fa-angle-left mx-3 -translate-x-3"
+        :class="fullMenu ? '' : 'fa-angle-right'"
+      ></i>
+    </span>
+    <a-breadcrumb class="translate-x-8">
       <a-breadcrumb-item>Dashboard</a-breadcrumb-item>
       <a-breadcrumb-item>分析页</a-breadcrumb-item>
     </a-breadcrumb>
@@ -24,8 +30,15 @@
 
 <script setup lang="ts">
 import { CacheEnum } from "@/enums/cacheEnum";
-import { apiUserStore } from "@/store";
+import { apiUserStore, menuStore } from "@/store";
 import { reactive } from "vue";
+import { fullMenu } from "@/composables/useFullMenu";
+
+const menus = menuStore();
+const menu = menus.menuInit();
+menu.forEach((menuItem) => {
+  const title = menuItem.meta.title;
+});
 
 let info = apiUserStore().info;
 const userInfo = reactive({
