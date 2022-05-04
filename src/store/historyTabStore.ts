@@ -6,9 +6,7 @@ import { router } from "@/router";
 export const historyTabStore = defineStore("historyTab", {
   state: () => {
     return {
-      historyTabs: [
-        { name: "admin.user", title: "分析页", isClick: true },
-      ] as HistoryTab[],
+      historyTabs: [{ name: "admin.user", title: "分析页", isClick: true }] as HistoryTab[],
     };
   },
 
@@ -19,9 +17,7 @@ export const historyTabStore = defineStore("historyTab", {
         title: route.meta.title,
         isClick: route.meta.isClick,
       };
-      const isExist = this.historyTabs.some(
-        (tab) => tab.title === route.meta.title
-      );
+      const isExist = this.historyTabs.some(tab => tab.title === route.meta.title);
       if (!isExist && route.meta.title) {
         this.historyTabs.push(tabs);
       }
@@ -30,9 +26,9 @@ export const historyTabStore = defineStore("historyTab", {
     removeHistoryTab(historyTab: HistoryTab) {
       const removeTabIndex = this.historyTabs.indexOf(historyTab); // 选择删除的索引
       this.historyTabs.splice(removeTabIndex, 1); // 删除该索引下的tab
-      // router.push({
-      //   name: this.historyTabs[removeTabIndex - 1].name as string,
-      // });
+      router.push({
+        name: this.historyTabs[removeTabIndex - 1].name as string,
+      });
     },
   },
 });

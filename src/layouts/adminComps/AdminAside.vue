@@ -1,24 +1,16 @@
 <template>
-  <aside
-    class="menu"
-    :class="fullMenu ? 'w-[260px] min-w-[200px]' : 'w-[60px]'"
-  >
-    <div class="logo mb-10">
+  <aside class="menu" :class="fullMenu ? 'w-[260px] min-w-[200px]' : 'w-[60px]'">
+    <div class="logo mb-10 mt-1">
       <i class="fab fa-battle-net"></i>
-      <template v-if="fullMenu"
-        ><span class="text-2xl">ae-admin</span>
+      <template v-if="fullMenu">
+        <span class="text-2xl">ae-admin</span>
       </template>
     </div>
     <dl v-for="(menu, index) in menus" :key="index">
       <dt @click="clickMenu(menu)">
-        <section>
-          <i :class="menu.meta.icon"></i> {{ fullMenu ? menu.meta.title : "" }}
-        </section>
+        <section><i :class="menu.meta.icon"></i> {{ fullMenu ? menu.meta.title : "" }}</section>
         <section v-if="fullMenu">
-          <i
-            class="fa-solid fa-angle-down duration-300"
-            :class="{ 'rotate-180': menu.meta.isClick }"
-          ></i>
+          <i class="fa-solid fa-angle-down duration-300" :class="{ 'rotate-180': menu.meta.isClick }"></i>
         </section>
       </dt>
       <!-- @click="clickMenuItem(menuItem)" -->
@@ -46,8 +38,8 @@ const stores = menuStore();
 const menus = stores.menuInit();
 
 const clickMenu = (menu: RouteRecordNormalized) => {
-  menus.forEach((item) => {
-    if (item !== menu) {
+  menus.forEach(item => {
+    if (item !== menu.meta.isClick) {
       item.meta.isClick = false;
     }
   });
@@ -55,8 +47,8 @@ const clickMenu = (menu: RouteRecordNormalized) => {
 };
 
 const clickMenuItem = (menuItem: RouteRecordRaw) => {
-  menus.forEach((menu) => {
-    menu.children?.forEach((cmenu) => {
+  menus.forEach(menu => {
+    menu.children?.forEach(cmenu => {
       cmenu.meta!.isClick = false;
     });
   });

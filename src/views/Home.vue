@@ -1,26 +1,15 @@
 <template>
   <main class="flex flex-col justify-center items-center gap-10 h-screen">
-    <img
-      src="/imgs/zjcat.jpg"
-      class="w-36 h-36 object-cover rounded-full z-20"
-      alt="zjcat"
-    />
+    <img src="/imgs/zjcat.jpg" class="w-36 h-36 object-cover rounded-full z-20" alt="zjcat" />
     <h2 class="text-gray-100 text-2xl z-20">ae-admin</h2>
     <div class="flex gap-6 z-20">
-      <router-link
-        :to="{ name: 'admin.user' }"
-        class="ae-button hover:text-white"
-        >user</router-link
-      >
-      <router-link
-        :to="{ name: 'login' }"
-        class="ae-button bg-violet-500 hover:bg-violet-600 hover:text-white"
+      <router-link :to="{ name: 'admin.user' }" class="ae-button hover:text-white">user</router-link>
+      <router-link :to="{ name: 'login' }" class="ae-button bg-violet-500 hover:bg-violet-600 hover:text-white"
         >login</router-link
       >
     </div>
     <div class="backdrop z-10"></div>
   </main>
-
   <Footer />
 </template>
 

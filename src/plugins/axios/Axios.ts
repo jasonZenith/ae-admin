@@ -29,11 +29,11 @@ export class MyAxios {
   private interceptorsRequest() {
     // 添加请求拦截器
     axios.interceptors.request.use(
-      (config) => {
+      config => {
         // 在发送请求之前做些什么
         return config;
       },
-      (error) => {
+      error => {
         // 对请求错误做些什么
         return Promise.reject(error);
       }
@@ -42,12 +42,12 @@ export class MyAxios {
 
   private interceptorsResponse() {
     axios.interceptors.response.use(
-      (response) => {
+      response => {
         // 2xx 范围内的状态码都会触发该函数。
         // 对响应数据做点什么
         return response;
       },
-      (error) => {
+      error => {
         // 超出 2xx 范围的状态码都会触发该函数。
         // 对响应错误做点什么
         return Promise.reject(error);

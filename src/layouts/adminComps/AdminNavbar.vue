@@ -1,29 +1,31 @@
 <template>
   <div class="admin-navbar">
     <span class="cursor-pointer absolute py-6" @click="fullMenu = !fullMenu">
-      <i
-        class="fas fa-angle-left mx-3 -translate-x-3"
-        :class="fullMenu ? '' : 'fa-angle-right'"
-      ></i>
+      <i class="fas fa-angle-left mx-3 -translate-x-3" :class="fullMenu ? '' : 'fa-angle-right'"></i>
     </span>
     <a-breadcrumb class="translate-x-8">
       <a-breadcrumb-item>Dashboard</a-breadcrumb-item>
       <a-breadcrumb-item>分析页</a-breadcrumb-item>
     </a-breadcrumb>
-    <div class="logo relative group">
-      <img :src="userInfo.avatar" alt="用户头像" />
-      <span>{{ userInfo.name }}</span>
-      <ul class="avatar-links group-hover:block">
-        <li>
-          <a href="https://github.com/JasonZ227/ae-admin" target="_blank"
-            >文档中心</a
-          >
-        </li>
-        <li><router-link to="/">回到首页</router-link></li>
-        <li>
-          <router-link to="/login" @click="removeToken">退出登录</router-link>
-        </li>
-      </ul>
+    <div class="flex items-center">
+      <a-tooltip>
+        <template #title>全屏</template>
+        <fullscreen-outlined @click="fullScreen" class="mr-4 hover:opacity-60" />
+      </a-tooltip>
+
+      <div class="logo relative group">
+        <img :src="userInfo.avatar" alt="用户头像" />
+        <span>{{ userInfo.name }}</span>
+        <ul class="avatar-links group-hover:block">
+          <li>
+            <a href="https://github.com/JasonZ227/ae-admin" target="_blank">文档中心</a>
+          </li>
+          <li><router-link to="/">回到首页</router-link></li>
+          <li>
+            <router-link to="/login" @click="removeToken">退出登录</router-link>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -33,10 +35,12 @@ import { CacheEnum } from "@/enums/cacheEnum";
 import { apiUserStore, menuStore } from "@/store";
 import { reactive } from "vue";
 import { fullMenu } from "@/composables/useFullMenu";
+import { FullscreenOutlined } from "@ant-design/icons-vue";
+import { func } from "vue-types";
 
 const menus = menuStore();
 const menu = menus.menuInit();
-menu.forEach((menuItem) => {
+menu.forEach(menuItem => {
   const title = menuItem.meta.title;
 });
 
@@ -48,6 +52,9 @@ const userInfo = reactive({
 
 const removeToken = () => {
   localStorage.removeItem(CacheEnum.TOKEN_NAME);
+};
+const fullScreen = function () {
+  document.documentElement.requestFullscreen();
 };
 </script>
 

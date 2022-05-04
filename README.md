@@ -34,17 +34,17 @@ Vue 3 + Typescript + Vite + Tailwindcss + Sass + Antd
 ### 安装
 
 ```shell
-yarn
+pnpm
 ```
 
 ### 启动
 
 ```shell
-yarn dev
+pnpm dev
 ```
 
 ### 打包
 
 ```shell
-yarn build
+pnpm build
 ```

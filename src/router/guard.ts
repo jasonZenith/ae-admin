@@ -6,11 +6,11 @@ import { RouteLocationNormalized, Router } from "vue-router";
 class Guard {
   constructor(private router: Router) {}
   public run() {
-    this.router.beforeEach(async (to: RouteLocationNormalized, from) => {
+    this.router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
       if (this.isLogin(to, this.hasToken()) === false) {
         return { name: "login" };
       }
-      await this.getUserInfo();
+      // await this.getUserInfo();
       historyTabStore().addHistoryTab(to);
     });
   }
@@ -36,7 +36,7 @@ class Guard {
     return state;
   }
 }
-export default function (router: Router) {
+export const setupRouterGuard = function (router: Router) {
   const guard = new Guard(router);
   guard.run();
-}
+};

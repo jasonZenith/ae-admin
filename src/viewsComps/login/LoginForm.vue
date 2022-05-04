@@ -1,18 +1,9 @@
 <template>
   <Form @submit="onSubmit" :validation-schema="schema" class="login-form my-9">
-    <Field
-      name="account"
-      value="jasonzeng@ae.com"
-      label="账号"
-      #default="{ field, errorMessage }"
-    >
+    <Field name="account" value="jasonzeng@ae.com" label="账号" #default="{ field, errorMessage }">
       <section>
         <span>账号</span>
-        <input
-          class="ae-input"
-          v-bind="field"
-          placeholder="请输入手机号或邮箱"
-        />
+        <input class="ae-input" v-bind="field" placeholder="请输入手机号或邮箱" />
       </section>
       <p class="error-message absolute -translate-y-3 translate-x-12">
         {{ errorMessage }}
@@ -21,20 +12,10 @@
 
     <!-- :validate-on-input="true"  -->
 
-    <Field
-      name="password"
-      value="123456"
-      label="密码"
-      #default="{ field, errorMessage }"
-    >
+    <Field name="password" value="123456" label="密码" #default="{ field, errorMessage }">
       <section>
         <span>密码</span>
-        <input
-          type="password"
-          class="ae-input"
-          v-bind="field"
-          placeholder="请输入密码"
-        />
+        <input type="password" class="ae-input" v-bind="field" placeholder="请输入密码" />
       </section>
       <p class="error-message absolute -translate-y-3 translate-x-12">
         {{ errorMessage }}
@@ -66,8 +47,7 @@ const onSubmit = async (values: object) => {
       expire: 1800, // 自定义token 过期时间30分钟
       token: res.result.token,
     });
-    const cacheRouterName =
-      utils.store.get(CacheEnum.CACHE_ROUTER_NAME) ?? "admin.user";
+    const cacheRouterName = utils.store.get(CacheEnum.CACHE_ROUTER_NAME) ?? "admin.user";
     router.push({ name: cacheRouterName });
   }
 };
