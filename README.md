@@ -34,7 +34,7 @@ Vue 3 + Typescript + Vite + Tailwindcss + Sass + Antd
 ### 安装
 
 ```shell
-pnpm
+pnpm install
 ```
 
 ### 启动
