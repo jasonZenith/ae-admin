@@ -1,3 +1,3 @@
-import { ref } from "vue";
+import { ref } from "vue"
 
-export let fullMenu = ref(true);
+export let fullMenu = ref(true)

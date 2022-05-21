@@ -1,13 +1,13 @@
-import { reactive } from "vue";
+import { reactive } from "vue"
 
 export interface MenuItem {
-  title: string;
-  icon?: string;
-  active?: boolean;
+  title: string
+  icon?: string
+  active?: boolean
 }
 
 export interface Menu extends MenuItem {
-  children?: MenuItem[];
+  children?: MenuItem[]
 }
 
 export const menus: Menu[] = reactive([
@@ -49,4 +49,4 @@ export const menus: Menu[] = reactive([
       },
     ],
   },
-]);
+])

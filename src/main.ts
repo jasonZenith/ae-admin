@@ -1,23 +1,23 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import "@/styles/global.scss";
-import { setupRouter, router } from "@/router";
-import { setupPlugins } from "@/plugins";
-import { registerGlobComp } from "@/components/registGlobComp";
-import { setupRouterGuard } from "./router/guard";
+import { createApp } from "vue"
+import App from "./App.vue"
+import "@/styles/global.scss"
+import { setupRouter, router } from "@/router"
+import { setupPlugins } from "@/plugins"
+import { registerGlobComp } from "@/components/registGlobComp"
+import { setupRouterGuard } from "./router/guard"
 
 const bootstrap = async () => {
-  const app = createApp(App);
+  const app = createApp(App)
 
-  setupPlugins(app);
+  setupPlugins(app)
 
-  registerGlobComp(app);
+  registerGlobComp(app)
 
-  setupRouter(app);
+  setupRouter(app)
 
-  setupRouterGuard(router);
+  setupRouterGuard(router)
 
-  app.mount("#app");
-};
+  app.mount("#app")
+}
 
-bootstrap();
+bootstrap()

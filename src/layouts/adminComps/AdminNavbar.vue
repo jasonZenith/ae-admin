@@ -8,10 +8,12 @@
       <a-breadcrumb-item>分析页</a-breadcrumb-item>
     </a-breadcrumb>
     <div class="flex items-center">
-      <a-tooltip>
-        <template #title>全屏</template>
-        <fullscreen-outlined @click="fullScreen" class="mr-4 hover:opacity-60" />
-      </a-tooltip>
+      <Tooltip :title="getTitle" placement="bottom" :mouseEnterDelay="0.5" class="mr-4 hover:opacity-60">
+        <span @click="toggle">
+          <FullscreenOutlined v-if="!isFullscreen" />
+          <FullscreenExitOutlined v-else />
+        </span>
+      </Tooltip>
 
       <div class="logo relative group">
         <img :src="userInfo.avatar" alt="用户头像" />
@@ -31,31 +33,33 @@
 </template>
 
 <script setup lang="ts">
-import { CacheEnum } from "@/enums/cacheEnum";
-import { apiUserStore, menuStore } from "@/store";
-import { reactive } from "vue";
-import { fullMenu } from "@/composables/useFullMenu";
-import { FullscreenOutlined } from "@ant-design/icons-vue";
-import { func } from "vue-types";
+import { CacheEnum } from "@/enums/cacheEnum"
+import { Tooltip } from "ant-design-vue"
+import { apiUserStore, menuStore } from "@/store"
+import { reactive, computed, unref } from "vue"
+import { fullMenu } from "@/composables/useFullMenu"
+import { FullscreenOutlined, FullscreenExitOutlined } from "@ant-design/icons-vue"
+import { useFullscreen } from "@vueuse/core"
 
-const menus = menuStore();
-const menu = menus.menuInit();
+const { toggle, isFullscreen } = useFullscreen()
+const getTitle = computed(() => {
+  return unref(isFullscreen) ? "退出全屏" : "全屏"
+})
+const menus = menuStore()
+const menu = menus.menuInit()
 menu.forEach(menuItem => {
-  const title = menuItem.meta.title;
-});
+  const title = menuItem.meta.title
+})
 
-let info = apiUserStore().info;
+let info = apiUserStore().info
 const userInfo = reactive({
   name: info?.name,
   avatar: info?.avatar,
-});
+})
 
 const removeToken = () => {
-  localStorage.removeItem(CacheEnum.TOKEN_NAME);
-};
-const fullScreen = function () {
-  document.documentElement.requestFullscreen();
-};
+  localStorage.removeItem(CacheEnum.TOKEN_NAME)
+}
 </script>
 
 <style lang="scss">

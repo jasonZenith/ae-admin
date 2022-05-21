@@ -14,12 +14,12 @@
 </template>
 
 <script setup lang="ts">
-import Footer from "@/components/globalComp/Footer.vue";
+import Footer from "@/components/globalComp/Footer.vue"
 </script>
 <script lang="ts">
 export default {
   route: { name: "home" },
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -17,12 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import AdminAside from "./adminComps/AdminAside.vue";
-import AdminNavbar from "./adminComps/AdminNavbar.vue";
-import HistoryTab from "./adminComps/HistoryTab.vue";
-import { message } from "ant-design-vue";
+import AdminAside from "./adminComps/AdminAside.vue"
+import AdminNavbar from "./adminComps/AdminNavbar.vue"
+import HistoryTab from "./adminComps/HistoryTab.vue"
+import { message } from "ant-design-vue"
 
-message.success("登录成功");
+message.success("登录成功")
 </script>
 
 <style lang="scss">

@@ -29,32 +29,30 @@
 </template>
 
 <script setup lang="ts">
-import { router } from "@/router";
-import { menuStore } from "@/store";
-import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router";
-import { fullMenu } from "@/composables/useFullMenu";
+import { router } from "@/router"
+import { menuStore } from "@/store"
+import { RouteRecordNormalized, RouteRecordRaw, useRouter } from "vue-router"
+import { fullMenu } from "@/composables/useFullMenu"
 
-const stores = menuStore();
-const menus = stores.menuInit();
+const stores = menuStore()
+const menus = stores.menuInit()
 
 const clickMenu = (menu: RouteRecordNormalized) => {
   menus.forEach(item => {
-    if (item !== menu.meta.isClick) {
-      item.meta.isClick = false;
-    }
-  });
-  menu.meta.isClick = Boolean(!menu.meta.isClick);
-};
+    item.meta.isClick = false
+  })
+  menu.meta.isClick = Boolean(!menu.meta.isClick)
+}
 
 const clickMenuItem = (menuItem: RouteRecordRaw) => {
   menus.forEach(menu => {
     menu.children?.forEach(cmenu => {
-      cmenu.meta!.isClick = false;
-    });
-  });
-  menuItem.meta!.isClick = true;
-  router.push(menuItem);
-};
+      cmenu.meta!.isClick = false
+    })
+  })
+  menuItem.meta!.isClick = true
+  router.push(menuItem)
+}
 </script>
 
 <style lang="scss" scoped>

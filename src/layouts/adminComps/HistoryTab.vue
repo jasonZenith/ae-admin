@@ -1,16 +1,9 @@
 <template>
   <div class="history-tab">
-    <div
-      class="tab-links"
-      :class="{ active: $route.name === historyTab.name }"
-      v-for="historyTab in historyTabs"
-    >
-      <router-link
-        :to="{ name: historyTab.name }"
-        @click="changeClick(historyTab)"
-        class="hover:text-white"
-        >{{ historyTab.title }}</router-link
-      >
+    <div class="tab-links" :class="{ active: $route.name === historyTab.name }" v-for="historyTab in historyTabs">
+      <router-link :to="{ name: historyTab.name }" @click="changeClick(historyTab)" class="hover:text-white">
+        {{ historyTab.title }}
+      </router-link>
       <i
         v-if="!(historyTab.name === 'admin.user')"
         class="fa-solid fa-xmark cursor-pointer"
@@ -21,27 +14,27 @@
 </template>
 
 <script setup lang="ts">
-import { router } from "@/router";
-import { historyTabStore } from "@/store";
+import { router } from "@/router"
+import { historyTabStore } from "@/store"
 
-const historyTabs = historyTabStore().historyTabs;
+const historyTabs = historyTabStore().historyTabs
 const changeClick = (historyTab: any) => {
-  historyTabs.forEach((tab) => {
-    tab.isClick = false;
-  });
-  historyTab.isClick = true;
-};
+  historyTabs.forEach(tab => {
+    tab.isClick = false
+  })
+  historyTab.isClick = true
+}
 
 const removeHistoryTab = (historyTab: any) => {
-  historyTabStore().removeHistoryTab(historyTab);
-  historyTabs.forEach((tab) => {
+  historyTabStore().removeHistoryTab(historyTab)
+  historyTabs.forEach(tab => {
     if (tab.isClick) {
       router.push({
         name: tab.name as string,
-      });
+      })
     }
-  });
-};
+  })
+}
 </script>
 
 <style lang="scss">
